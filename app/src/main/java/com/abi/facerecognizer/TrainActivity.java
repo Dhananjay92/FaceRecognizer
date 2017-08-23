@@ -33,15 +33,18 @@ public class TrainActivity extends AppCompatActivity {
     private TextView txtInfo;
     private ImageView imgCapture;
     private String currentPhotoPath;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_train);
 
+        this.username = getIntent().getExtras().getString("username");
         this.txtInfo = (TextView) findViewById(R.id.txtInfo);
         this.imgCapture = (ImageView) findViewById(R.id.imgCapture);
 
+        this.txtInfo.setText("Welcome " + this.username);
         this.requestRuntimePermission();
     }
 

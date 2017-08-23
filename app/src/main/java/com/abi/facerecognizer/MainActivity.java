@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onTrainClick(View view) {
-        Intent intent = new Intent(this, TrainActivity.class);
+        Intent intent = new Intent(this, UserInfoActivity.class);
         startActivity(intent);
     }
 }
