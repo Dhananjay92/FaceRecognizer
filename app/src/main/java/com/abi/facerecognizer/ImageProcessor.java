@@ -15,7 +15,7 @@ import java.nio.ByteBuffer;
 public class ImageProcessor {
 
     private static final String TAG = "ImageProcessor";
-    public static final int IMAGE_SIZE = 128;
+    public static final int IMAGE_SIZE = 64;
 
     private ImageProcessor() {
 

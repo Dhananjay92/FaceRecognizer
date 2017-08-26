@@ -55,14 +55,14 @@ public class TrainActivity extends AppCompatActivity {
         this.imgCapture = (ImageView) findViewById(R.id.imgCapture);
 
         this.txtInfo.setText("Welcome " + this.username);
-//        this.requestRuntimePermission();
+        this.requestRuntimePermission();
     }
 
     public void onCaptureClicked(View view) {
-//        dispatchTakePictureIntent();
+        dispatchTakePictureIntent();
 
-        Bitmap image = BitmapFactory.decodeResource(this.getResources(), R.drawable.abi_256);
-        this.processImage(image);
+//        Bitmap image = BitmapFactory.decodeResource(this.getResources(), R.drawable.abi_256);
+//        this.processImage(image);
     }
 
     private void requestRuntimePermission() {
@@ -158,7 +158,7 @@ public class TrainActivity extends AppCompatActivity {
             txtInfo.setTextColor(Color.GREEN);
 
             progressDialog = ProgressDialog.show(this, "Training", "Please wait...");
-            new TrainTask().execute(processedImage);
+            new DetectTask().execute(processedImage);
 
         } else {
             imgCapture.setImageResource(R.drawable.unknown);
