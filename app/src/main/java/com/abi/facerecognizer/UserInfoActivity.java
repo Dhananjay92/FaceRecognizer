@@ -15,6 +15,7 @@ public class UserInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
         this.txtUsername = (EditText) findViewById(R.id.txtUsername);
+        this.txtUsername.setText("gobinath");
     }
 
     public void onStartClicked(View view) {

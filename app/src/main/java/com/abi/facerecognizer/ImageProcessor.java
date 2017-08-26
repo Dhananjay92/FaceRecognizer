@@ -10,9 +10,12 @@ import android.graphics.PointF;
 import android.media.FaceDetector;
 import android.util.Log;
 
+import java.nio.ByteBuffer;
+
 public class ImageProcessor {
 
     private static final String TAG = "ImageProcessor";
+    public static final int IMAGE_SIZE = 128;
 
     private ImageProcessor() {
 
@@ -52,6 +55,26 @@ public class ImageProcessor {
             return ImageProcessor.convertToBW(croppedBitmap);
         }
         return null;
+    }
+
+    public static double[] convertImage(Bitmap bitmap, int sizeX, int sizeY) {
+
+        int bytes = bitmap.getByteCount();
+        ByteBuffer buffer = ByteBuffer.allocate(bytes);
+        bitmap.copyPixelsToBuffer(buffer);
+        byte[] pixels = buffer.array();
+        int size = pixels.length;
+        double[] data = new double[size];
+
+        for (int i = 0; i < size; i++) {
+            if (pixels[0] > 128) {
+                data[i] = 0.0;
+            } else {
+                data[i] = 1.0;
+            }
+        }
+
+        return data;
     }
 
     private static FaceDetector.Face detectFace(Bitmap bitmap, int width, int height) {
